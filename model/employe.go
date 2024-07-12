@@ -20,11 +20,11 @@ func GenerateEmployees(num int, ch chan Employee) {
 	statusOptions := []string{"Permanent", "Contract", "Trainee"}
 	names := []string{"a1", "b1", "a2", "c4", "a5"}
 
-	for i := 0; i < num; i++ {
+	for i := 1; i <= num; i++ {
 		employee := Employee{
-			id:          101 + i,
+			id:          100 + i,
 			fullName:    names[rand.Intn(len(names))],
-			salary:      float64(5000 + rand.Intn(10000)),
+			salary:      float64(5000 + rand.Intn(10_000)),
 			status:      statusOptions[rand.Intn(len(statusOptions))],
 			insurance:   500_000,
 			overtime:    55_000,
