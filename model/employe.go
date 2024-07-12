@@ -1,7 +1,6 @@
 package model
 
 import (
-	"fmt"
 	"math/rand"
 )
 
@@ -41,15 +40,13 @@ func CalculateTotalSalary(inCh chan Employee, outCh chan []Employee) {
 	for employee := range inCh {
 		employee.totalSalary = employee.salary + employee.insurance + employee.overtime + employee.allowance
 		updatedEmployees = append(updatedEmployees, employee)
-
 	}
-
 	outCh <- updatedEmployees
 	close(outCh)
 }
 
 func PrintResult(updatedEmployees []Employee) {
-	for _, employee := range updatedEmployees {
-		fmt.Printf("ID: %d, Name: %s, Total Salary: %.2f\n", employee.id, employee.fullName, employee.totalSalary)
-	}
+	// for _, employee := range updatedEmployees {
+	// 	fmt.Printf("ID: %d, Name: %s, Total Salary: %.2f\n", employee.id, employee.fullName, employee.totalSalary)
+	// }
 }
